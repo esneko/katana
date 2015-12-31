@@ -1,0 +1,6 @@
+export const SET_AMOUNT = 'SET_AMOUNT'
+export const SET_TERM = 'SET_TERM'
+export const SET_RATE = 'SET_RATE'
+export const ADD_LOAN = 'ADD_LOAN'
+export const EDIT_LOAN = 'EDIT_LOAN'
+export const DELETE_LOAN = 'DELETE_LOAN'
