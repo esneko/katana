@@ -19,11 +19,7 @@ body {
 
 .container {
   width: 100%;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
   flex-direction: row;
   align-items: stretch;
   justify-content: flex-start;
@@ -54,11 +50,7 @@ body {
 
     .calculator {
       width: 100%;
-      display: -webkit-flex;
-    	display: -ms-flexbox;
     	display: flex;
-      -webkit-flex-direction: row;
-    	-ms-flex-direction: row;
     	flex-direction: row;
     	align-items: stretch;
       justify-content: flex-start;
@@ -66,11 +58,7 @@ body {
 
       form,
       .payable {
-      	display: -webkit-flex;
-      	display: -ms-flexbox;
       	display: flex;
-      	-webkit-flex-direction: column;
-      	-ms-flex-direction: column;
       	flex-direction: column;
       	flex: 0 1 50%;
         align-items: stretch;
@@ -78,11 +66,7 @@ body {
       	padding: 0 20px 10px 20px;
 
         div {
-          display: -webkit-flex;
-          display: -ms-flexbox;
           display: flex;
-          -webkit-flex-direction: row;
-          -ms-flex-direction: row;
           flex-direction: row;
           flex: 0 1 auto;
           align-items: flex-end;
@@ -194,16 +178,12 @@ body {
 
 @media only screen and (min-width: 320px) and (max-width: 1024px) {
   .container {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
     flex-direction: column;
 
     .flexbox {
       flex: 0 1 100%;
 
       .calculator {
-      	-webkit-flex-direction: column;
-      	-ms-flex-direction: column;
       	flex-direction: column;
         padding: 0;
 

@@ -3,7 +3,6 @@ import Payable from './payable'
 import Profile from './profile'
 
 const calculator = ({actions, amount, term, rate, loans}) => {
-  const update = (action) => event => actions[action](parseInt(event.target.value))
   return (
     <div className={"container"}>
       <section className={"flexbox"}>
@@ -15,7 +14,7 @@ const calculator = ({actions, amount, term, rate, loans}) => {
               <input type="text"
                   maxLength="5"
                   value={amount}
-                  onChange={update('setAmount')}
+                  onChange={actions.setAmount}
               />
               <span>{"euro"}</span>
             </div>
@@ -24,7 +23,7 @@ const calculator = ({actions, amount, term, rate, loans}) => {
               <input type="text"
                   maxLength="2"
                   value={term}
-                  onChange={update('setTerm')}
+                  onChange={actions.setTerm}
               />
               <span>{"days"}</span>
             </div>
@@ -33,7 +32,7 @@ const calculator = ({actions, amount, term, rate, loans}) => {
               <input type="text"
                   maxLength="2"
                   value={rate}
-                  onChange={update('setRate')}
+                  onChange={actions.setRate}
               />
               <span>{"%"}</span>
             </div>

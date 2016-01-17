@@ -1,14 +1,14 @@
-import React, {PropTypes as T} from 'react'
+import React from 'react'
 
 export default ({actions, amount, term, rate}) => {
   const interest = (n) => Math.round(n * rate / 100)
   const total = (n, f) => n + f(n)
-  const apply = (action) => event => actions[action]({
+  const loan = {
     amount: amount,
     term: term,
     interest: interest(amount),
     date: Date.now()
-  })
+  }
   return (
     <section className={"payable"}>
       <div className={"one-half"}>
@@ -24,7 +24,7 @@ export default ({actions, amount, term, rate}) => {
         <span className={"total"}>{total(amount, interest)}</span>
       </div>
       <div className={"one-half"}>
-        <a href="#" onClick={apply('addLoan')}>{"Apply"}</a>
+        <a href="#" onClick={(e) => actions.addLoan(loan)}>{"Apply"}</a>
       </div>
     </section>
   )

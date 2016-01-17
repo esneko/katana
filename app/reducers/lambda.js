@@ -32,8 +32,8 @@ const lambda = (state = initialState, action) => {
     case EDIT_LOAN:
       return {
         ...state,
-        loans: state.loans.map((loan,id) =>
-          id === action.val.id ? {
+        loans: state.loans.map((loan, id) =>
+          id === action.idx ? {
             ...loan,
             interest: Math.round(loan.interest * 1.5),
             term: loan.term + 7
