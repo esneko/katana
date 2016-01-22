@@ -1,3 +1,5 @@
+export const FIELD_CHANGE = 'FIELD_CHANGE'
+export const LOGGED_IN = 'LOGGED_IN'
 export const SET_AMOUNT = 'SET_AMOUNT'
 export const SET_TERM = 'SET_TERM'
 export const SET_RATE = 'SET_RATE'

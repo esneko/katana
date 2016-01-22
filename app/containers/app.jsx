@@ -14,7 +14,5 @@ const app = ({lambda, dispatch}) => {
     />
   )
 }
-
 const mapStateToProps = state => state
-
 export default connect(mapStateToProps)(app)

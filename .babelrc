@@ -1,6 +1,8 @@
 {
   "plugins": [
+    "transform-decorators-legacy",
     "transform-react-stateless-component-name",
+    "transform-regenerator",
     "transform-runtime"
   ],
   "presets": [
