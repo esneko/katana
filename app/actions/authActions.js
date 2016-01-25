@@ -1,36 +1,29 @@
-import {FIELD_CHANGE, LOGGED_IN} from '../constants/actionTypes'
+import {REQUEST_LOGIN} from '../constants/actionTypes'
 
-export function onFieldChange(name, value) {
-  console.log(name, value)
-  return {
-    type: FIELD_CHANGE,
-    payload: {name, value}
-  }
+function authenticate(headers) {
+  return new Promise(resolve => setTimeout(resolve, 3000))
+    .then(() => ({token: 'ok'}))
 }
 
-function sendAuthentication(authHeaders) {
-  console.log(authHeaders)
-  setTimeout(() => {
-    return {
-      type: LOGGED_IN,
-      payload: true
-    }
-  }, 5000)
-}
-
-async function processLogin({email, pass, dispatch}) {
-  const authHeaders = {
+async function requestLogin({email, pass, dispatch}) {
+  const headers = {
     username: email,
     password: pass
   }
-  await dispatch(sendAuthentication(authHeaders))
+  const {token} = await authenticate(headers)
+  console.log(token)
+
+  dispatch({
+    type: FIELD_CHANGE,
+    payload: {name: 'loggedIn', value: true}
+  })
 }
 
 export function login({email, pass}) {
-  return ({dispatch}) => ({
-    type: 'AUTH_LOGIN',
+  return dispatch => dispatch({
+    type: REQUEST_LOGIN,
     payload: {
-      promise: processLogin({email, pass, dispatch})
+      promise: requestLogin({email, pass, dispatch})
     }
   })
 }

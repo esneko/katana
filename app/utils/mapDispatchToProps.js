@@ -1,4 +1,4 @@
-import actions from '../actions/asyncActions'
+import actions from '../actions/index'
 import {bindActionCreators} from 'redux';
 
 export default (actionsProps = {}) => (dispatch) => {
