@@ -1,10 +1,8 @@
 import React from 'react'
 import connectState from '../utils/connectState'
 
-const c = ({fieldChange, login, email, pass}) => {
-  const onChange = event => {
-    fieldChange(event.target.name, event.target.value)
-  }
+const c = ({setField, login, email, pass}) => {
+  const onChange = event => setField(event.target.name, event.target.value)
   const onSubmit = event => {
     event.preventDefault()
     login({email, pass})
@@ -34,7 +32,7 @@ export default connectState({
     pass: ['token', 'password']
   },
   actions: {
-    fieldChange: ['form', 'fieldChange'],
+    fieldChange: ['form', 'setField'],
     login: ['auth', 'login']
   }
 })(c)

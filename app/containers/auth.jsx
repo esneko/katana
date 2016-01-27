@@ -1,7 +1,7 @@
 import React from 'react'
 import Login from '../components/login'
 
-export default ({token, dispatch}) => {
+export default ({token}) => {
   return (
     <Login {...token} />
   )

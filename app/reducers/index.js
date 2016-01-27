@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux'
 import lambda from './lambda'
-import token from './token'
+import payday from './payday'
 
 const rootReducer = combineReducers({
   lambda,
-  token
+  payday
 })
 
 export default rootReducer

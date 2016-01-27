@@ -1,5 +1,5 @@
-import {FIELD_CHANGE} from '../constants/actionTypes'
-import {Record} from 'immutable';
+import {SET_FIELD} from '../constants/actionTypes'
+import {Record} from 'immutable'
 
 const InitialState = Record({
   username: '',
@@ -13,7 +13,7 @@ const token = (state = initialState, action) => {
   if (!(state instanceof InitialState)) return initialState.mergeDeep(state);
 
   switch (action.type) {
-    case FIELD_CHANGE: {
+    case SET_FIELD: {
       const {name, value} = action.payload
       return state.set(name, value)
     }

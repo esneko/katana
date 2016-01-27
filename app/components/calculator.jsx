@@ -1,56 +1,49 @@
 import React, {PropTypes as T} from 'react'
 import Payable from './payable'
-import Profile from './profile'
 
-const calculator = ({actions, amount, term, rate, loans}) => {
+const calculator = ({actions, amount, term, rate}) => {
+  const onChange = event => actions.form.setField(event.target.name, +event.target.value)
   return (
-    <div className={"container"}>
-      <section className={"flexbox"}>
-        <h2>{"Loan calculator"}</h2>
-        <div className={"calculator"}>
-          <form>
-            <div className={"one-third"}>
-              <label>{"Amount"}</label>
-              <input type="text"
-                  maxLength="5"
-                  value={amount}
-                  onChange={actions.setAmount}
-              />
-              <span>{"euro"}</span>
-            </div>
-            <div className={"one-third"}>
-              <label>{"Term"}</label>
-              <input type="text"
-                  maxLength="2"
-                  value={term}
-                  onChange={actions.setTerm}
-              />
-              <span>{"days"}</span>
-            </div>
-            <div className={"one-third"}>
-              <label>{"Rate"}</label>
-              <input type="text"
-                  maxLength="2"
-                  value={rate}
-                  onChange={actions.setRate}
-              />
-              <span>{"%"}</span>
-            </div>
-          </form>
-          <Payable
-              actions={actions}
-              amount={amount}
-              term={term}
-              rate={rate}
+    <div className={"calculator"}>
+      <h2>{"Loan calculator"}</h2>
+      <form>
+        <div className={"one-third"}>
+          <label>{"Amount"}</label>
+          <input type="text"
+              maxLength="5"
+              name='amount'
+              value={amount}
+              onChange={onChange}
           />
+          <span>{"euro"}</span>
         </div>
-      </section>
-      <section className={"flexbox"}>
-        <Profile
-            actions={actions}
-            loans={loans}
-        />
-      </section>
+        <div className={"one-third"}>
+          <label>{"Term"}</label>
+          <input type="text"
+              maxLength="2"
+              name='term'
+              value={term}
+              onChange={onChange}
+          />
+          <span>{"days"}</span>
+        </div>
+        <div className={"one-third"}>
+          <label>{"Rate"}</label>
+          <input type="text"
+              maxLength="2"
+              name='rate'
+              value={rate}
+              onChange={onChange}
+          />
+          <span>{"%"}</span>
+        </div>
+      </form>
+      <Payable
+          actions={actions}
+          amount={amount}
+          term={term}
+          rate={rate}
+      />
     </div>
   )
 }

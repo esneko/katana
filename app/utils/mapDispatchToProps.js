@@ -1,5 +1,5 @@
 import actions from '../actions/index'
-import {bindActionCreators} from 'redux';
+import {bindActionCreators} from 'redux'
 
 export default (actionsProps = {}) => (dispatch) => {
   return Object.keys(actionsProps).reduce((localState, name) => {
@@ -21,7 +21,7 @@ export default (actionsProps = {}) => (dispatch) => {
           result[key] = obj[key];
         }
         return result;
-      }, {});
+      }, {})
     }
 
     const selected = pick(actions[key], value => typeof value === 'function')

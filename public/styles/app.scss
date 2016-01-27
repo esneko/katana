@@ -27,12 +27,6 @@ body {
   .flexbox {
     flex: 0 1 50%;
 
-    h2 {
-      font-size: 1.4em;
-      padding-left: 20px;
-      border-bottom: 2px solid $heading;
-    }
-
     a {
       display: block;
       float: right;
@@ -55,6 +49,12 @@ body {
     	align-items: stretch;
       justify-content: flex-start;
       padding: 0 80px 0 0;
+
+      h2 {
+        font-size: 1.4em;
+        padding-left: 20px;
+        border-bottom: 2px solid $heading;
+      }
 
       form,
       .payable {

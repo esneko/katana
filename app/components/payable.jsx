@@ -24,7 +24,7 @@ export default ({actions, amount, term, rate}) => {
         <span className={"total"}>{total(amount, interest)}</span>
       </div>
       <div className={"one-half"}>
-        <a href="#" onClick={(e) => actions.addLoan(loan)}>{"Apply"}</a>
+        <a href="#" onClick={(e) => actions.loan.addLoan(loan)}>{"Apply"}</a>
       </div>
     </section>
   )

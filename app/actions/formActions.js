@@ -1,8 +1,8 @@
-import {FIELD_CHANGE} from '../constants/actionTypes'
+import {SET_FIELD} from '../constants/actionTypes'
 
-export function fieldChange(name, value) {
+export function setField(name, value) {
   return {
-    type: FIELD_CHANGE,
+    type: SET_FIELD,
     payload: {name, value}
   }
 }

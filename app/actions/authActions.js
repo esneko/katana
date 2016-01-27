@@ -1,4 +1,4 @@
-import {REQUEST_LOGIN} from '../constants/actionTypes'
+import {REQUEST_LOGIN, SET_FIELD} from '../constants/actionTypes'
 
 function authenticate(headers) {
   return new Promise(resolve => setTimeout(resolve, 3000))
@@ -14,8 +14,11 @@ async function requestLogin({email, pass, dispatch}) {
   console.log(token)
 
   dispatch({
-    type: FIELD_CHANGE,
-    payload: {name: 'loggedIn', value: true}
+    type: SET_FIELD,
+    payload: {
+      name: 'loggedIn',
+      value: true
+    }
   })
 }
 
