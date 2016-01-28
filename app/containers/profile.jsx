@@ -8,14 +8,10 @@ import '../../public/styles/app.scss'
 const app = ({payday, dispatch}) => {
   const actions = bindActionCreators(LoanActions, dispatch)
   return (
-    <div className={"container"}>
-      <section className={"flexbox"}>
-        <Summary
-            {...payday}
-            actions={actions}
-        />
-      </section>
-    </div>
+    <Summary
+        {...payday}
+        actions={actions}
+    />
   )
 }
 const mapStateToProps = state => state

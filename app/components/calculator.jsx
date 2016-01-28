@@ -4,46 +4,48 @@ import Payable from './payable'
 const calculator = ({actions, amount, term, rate}) => {
   const onChange = event => actions.form.setField(event.target.name, +event.target.value)
   return (
-    <div className={"calculator"}>
+    <div>
       <h2>{"Loan calculator"}</h2>
-      <form>
-        <div className={"one-third"}>
-          <label>{"Amount"}</label>
-          <input type="text"
-              maxLength="5"
-              name='amount'
-              value={amount}
-              onChange={onChange}
-          />
-          <span>{"euro"}</span>
-        </div>
-        <div className={"one-third"}>
-          <label>{"Term"}</label>
-          <input type="text"
-              maxLength="2"
-              name='term'
-              value={term}
-              onChange={onChange}
-          />
-          <span>{"days"}</span>
-        </div>
-        <div className={"one-third"}>
-          <label>{"Rate"}</label>
-          <input type="text"
-              maxLength="2"
-              name='rate'
-              value={rate}
-              onChange={onChange}
-          />
-          <span>{"%"}</span>
-        </div>
-      </form>
-      <Payable
-          actions={actions}
-          amount={amount}
-          term={term}
-          rate={rate}
-      />
+      <div className={"calculator"}>
+        <form>
+          <div className={"one-third"}>
+            <label>{"Amount"}</label>
+            <input type="text"
+                maxLength="5"
+                name='amount'
+                value={amount}
+                onChange={onChange}
+            />
+            <span>{"euro"}</span>
+          </div>
+          <div className={"one-third"}>
+            <label>{"Term"}</label>
+            <input type="text"
+                maxLength="2"
+                name='term'
+                value={term}
+                onChange={onChange}
+            />
+            <span>{"days"}</span>
+          </div>
+          <div className={"one-third"}>
+            <label>{"Rate"}</label>
+            <input type="text"
+                maxLength="2"
+                name='rate'
+                value={rate}
+                onChange={onChange}
+            />
+            <span>{"%"}</span>
+          </div>
+        </form>
+        <Payable
+            actions={actions}
+            amount={amount}
+            term={term}
+            rate={rate}
+        />
+      </div>
     </div>
   )
 }
