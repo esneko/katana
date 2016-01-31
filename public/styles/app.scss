@@ -43,8 +43,11 @@ body {
           float: left;
           border: none;
           border-radius: 0;
+          background-color: white;
+          color: $button;
           &:hover {
-            border: none;
+            background-color: white;
+            color: $hover;
           }
         }
       }
@@ -56,13 +59,14 @@ body {
     float: right;
     padding: 10px 20px;
     margin: 10px 0 0 0;
-    border-radius: 5px;
-    border: 1px solid $heading;
-    color: $heading;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    color: white;
+    background-color: $button;
     text-decoration: none;
       &:hover {
-        border: 1px solid $primary;
-        color: $primary;
+        background-color: $hover;
+        border-color: transparent;
       }
   }
 
@@ -167,6 +171,13 @@ body {
         margin: 0 20px;
         padding: 0;
         border: none;
+        border-radius: 0;
+        background-color: white;
+        color: $button;
+        &:hover {
+          background-color: white;
+          color: $hover;
+        }
       }
 
       tr {
