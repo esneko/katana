@@ -1,8 +1,9 @@
 import React, {PropTypes as T} from 'react'
+//import connectState from '../utils/connectState'
 import Payable from './payable'
 
 const calculator = ({actions, amount, term, rate}) => {
-  const onChange = event => actions.form.setField(event.target.name, +event.target.value)
+  const onChange = event => actions.form.setField('calculus', event.target.name, +event.target.value)
   return (
     <div>
       <h2>{"Loan calculator"}</h2>
@@ -57,3 +58,12 @@ calculator.propTypes = {
 }
 
 export default calculator
+/*
+export default connectState({
+  state: {
+    amount: ['calculus', 'amount'],
+    term: ['calculus', 'term'],
+    rate: ['calculus', 'rate']
+  }
+})(calculator)
+*/

@@ -1,18 +1,12 @@
-import {REQUEST_LOGIN, SET_TOKEN} from '../constants/actionTypes'
-
-export function setToken(name, value) {
-  return {
-    type: SET_TOKEN,
-    payload: {name, value}
-  }
-}
+import {REQUEST_LOGIN, SET_FIELD} from '../constants/actionTypes'
 
 function authenticate(headers) {
   return new Promise(resolve => setTimeout(resolve, 3000))
     .then(() => ({
-      type: SET_TOKEN,
+      type: SET_FIELD,
       payload: {
-        name: 'loggedIn',
+        root: 'token',
+        path: 'loggedIn',
         value: true
       }
     }))

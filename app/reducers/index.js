@@ -1,12 +1,15 @@
 import {combineReducers} from 'redux'
-import lambda from './lambda'
+import lambdaReducer from './lambda'
+import calculus from './calculus'
 import payday from './payday'
 import token from './token'
 
-const rootReducer = combineReducers({
-  lambda,
-  payday,
-  token
-})
+const rootReducer = lambdaReducer(
+    combineReducers({
+      calculus,
+      payday,
+      token
+    })
+)
 
 export default rootReducer

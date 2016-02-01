@@ -4,12 +4,12 @@ import actions from '../actions/index'
 import bindActionCreatorsDeep from '../utils/bindActionCreatorsDeep'
 import Calculator from '../components/calculator'
 
-const app = ({lambda, dispatch}) => {
-  const actionCreators = bindActionCreatorsDeep(actions, dispatch)
+const app = ({calculus, dispatch}) => {
+  const scopedActions = bindActionCreatorsDeep(actions, dispatch)
   return (
     <Calculator
-        {...lambda}
-        actions={actionCreators}
+        {...calculus}
+        actions={scopedActions}
     />
   )
 }

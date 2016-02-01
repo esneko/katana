@@ -1,10 +1,9 @@
 import si from 'seamless-immutable'
 
 const initialState = si({
-  username: '',
-  password: '',
-  token: '',
-  loggedIn: false
+  amount: 400,
+  term: 30,
+  rate: 10
 })
 
 export default (state = initialState, action) => {

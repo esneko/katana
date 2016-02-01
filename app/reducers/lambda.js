@@ -1,23 +1,17 @@
 import {SET_FIELD} from '../constants/actionTypes'
-import si from 'seamless-immutable'
 
-const initialState = si({
-  amount: 400,
-  term: 30,
-  rate: 10
-})
-
-const lambda = (state = initialState, action) => {
+export default (scopedReducer) => (...args) => {
+  const state = args[0]
+  const action = args[1]
   switch (action.type) {
     case SET_FIELD: {
-      const {name, value} = action.payload
-      return state.merge({
-        [name]: value
-      })
+      const {root, path, value} = action.payload
+      return {
+        ...state,
+        [root]: state[root].merge({[path]: value})
+      }
     }
     default:
-      return state
+      return scopedReducer.apply(null, args)
   }
 }
-
-export default lambda

@@ -1,10 +1,11 @@
 import {ADD_LOAN, EDIT_LOAN, DELETE_LOAN} from '../constants/actionTypes'
+import si from 'seamless-immutable'
 
-const initialState = {
+const initialState = si({
   loans: []
-}
+})
 
-const payday = (state = initialState, action) => {
+export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_LOAN:
       return {
@@ -25,11 +26,9 @@ const payday = (state = initialState, action) => {
       }
     case DELETE_LOAN:
       return state.loans.filter(loan =>
-        loan.id !== action.val.id
+        loan.id !== action.idx
       )
     default:
-      return state;
+      return state
   }
 }
-
-export default payday
