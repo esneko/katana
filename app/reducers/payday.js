@@ -8,25 +8,22 @@ const initialState = si({
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_LOAN:
-      return {
-        ...state,
-        loans: [...state.loans, action.val]
-      }
+      return state.merge({
+        loans: state.loans.concat([action.val])
+      })
     case EDIT_LOAN:
-      return {
-        ...state,
+      return state.merge({
         loans: state.loans.map((loan, id) =>
-          id === action.idx ? {
-            ...loan,
+          id === action.idx ? loan.merge({
             interest: Math.round(loan.interest * 1.5),
             term: loan.term + 7
-          } :
+          }) :
           loan
         )
-      }
+      })
     case DELETE_LOAN:
-      return state.loans.filter(loan =>
-        loan.id !== action.idx
+      return state.loans.filter((loan, id) =>
+        id !== action.idx
       )
     default:
       return state

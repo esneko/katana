@@ -6,7 +6,7 @@ export default ({actions, loans}) => {
     .toISOString()
     .slice(0, 10)
 
-  const list = loans.map(loan => {
+  const list = loans.asMutable().map(loan => {
     return {
       amount: loan.amount,
       interest: loan.interest,
