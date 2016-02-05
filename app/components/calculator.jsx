@@ -1,5 +1,5 @@
 import React, {PropTypes as T} from 'react'
-//import connectState from '../utils/connectState'
+import pure from 'recompose/pure'
 import Payable from './payable'
 
 const calculator = ({actions, amount, term, rate}) => {
@@ -57,13 +57,4 @@ calculator.propTypes = {
   rate: T.number.isRequired
 }
 
-export default calculator
-/*
-export default connectState({
-  state: {
-    amount: ['calculus', 'amount'],
-    term: ['calculus', 'term'],
-    rate: ['calculus', 'rate']
-  }
-})(calculator)
-*/
+export default pure(calculator)

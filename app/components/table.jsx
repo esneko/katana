@@ -1,7 +1,12 @@
 import React from 'react'
+import pure from 'recompose/pure'
 
-export default ({actions, head, list, total, className}) => {
-	return (
+export default pure(({actions, head, list, total, className}) => {
+  const extend = id => event => {
+    event.preventDefault()
+    actions.editLoan(id)
+  }
+  return (
 		<table className={className}>
 			<thead>
 				<tr>
@@ -10,10 +15,10 @@ export default ({actions, head, list, total, className}) => {
 				</tr>
 			</thead>
 			<tbody>
-				{list.map((item,id) =>
-					<tr key={id}>
+				{list.map((item,idx) =>
+					<tr key={idx}>
 						{Object.keys(item).map((i) => <td key={i}>{item[i]}</td>)}
-						<td><a href="#" onClick={(e) => actions.editLoan(id)}>{"Extend"}</a></td>
+						<td><a href="#" onClick={extend(idx)}>{"Extend"}</a></td>
 					</tr>
 				)}
 			</tbody>
@@ -26,4 +31,4 @@ export default ({actions, head, list, total, className}) => {
 			</tfoot>
 		</table>
 	)
-}
+})

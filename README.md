@@ -1,12 +1,5 @@
 ## Katana
 Micro-lending app built with 100% [React](https://github.com/facebook/react) _stateless components_ and [Redux](https://github.com/rackt/redux/) _stateless reducers_.
-```js
-// pure function reducer
-(state, action) => state
-
-// pure function component
-(state) => <UI/>
-```
 
 #### Requirements
 - [Node](https://nodejs.org/)
@@ -15,11 +8,11 @@ Micro-lending app built with 100% [React](https://github.com/facebook/react) _st
 #### Stack
 - [React](http://facebook.github.io/react/)
 - [Redux](http://rackt.org/redux/)
+- [Ramda](http://ramdajs.com/)
 - [Babel](http://babeljs.io/)
 - [Webpack](https://webpack.github.io/)
 - [Sass](https://www.npmjs.com/package/node-sass)
 - [Tape](https://www.npmjs.com/package/tape)
-- [ESLint](http://eslint.org/)
 
 #### Install
 ```

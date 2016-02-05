@@ -1,11 +1,16 @@
 var path = require('path');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
+var NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
+  node: {
+    fs: 'empty'
+  },
   entry: [
     'webpack-hot-middleware/client',
+    './app/__tests__/index',
     './app/index'
   ],
   output: {
@@ -14,6 +19,7 @@ module.exports = {
     publicPath: '/dist/'
   },
   plugins: [
+    new NpmInstallPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({

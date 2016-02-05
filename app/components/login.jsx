@@ -1,38 +1,41 @@
-import React from 'react'
-import connectState from '../utils/connectState'
+import React, {PropTypes as T} from 'react'
+import pure from 'recompose/pure'
+import TextInput from './form/fields/textInput'
 
-const c = ({setField, requestLogin, email, pass}) => {
-  const onChange = event => setField('token', event.target.name, event.target.value)
+const LoginForm = ({setField, requestLogin, email, pass}) => {
   const onSubmit = event => {
     event.preventDefault()
     requestLogin({email, pass})
   }
+
   return (
     <form onSubmit={onSubmit}>
-      <input
+      <TextInput
+          parent="emaill"
           placeholder='Email'
+          store="token"
           name='username'
           value={email}
-          onChange={onChange}
+          setField={setField}
       />
-      <input
+      <TextInput
+          parent="passs"
           placeholder='Password'
+          store="token"
           name='password'
           value={pass}
-          onChange={onChange}
+          setField={setField}
       />
       <button type='submit'>{"Login"}</button>
     </form>
   )
 }
 
-export default connectState({
-  state: {
-    email: ['token', 'username'],
-    pass: ['token', 'password']
-  },
-  actions: {
-    setField: ['form', 'setField'],
-    requestLogin: ['auth', 'requestLogin']
-  }
-})(c)
+LoginForm.propTypes = {
+  setField: T.func.isRequired,
+  requestLogin: T.func.isRequired,
+  email: T.string.isRequired,
+  pass: T.string.isRequired
+}
+
+export default pure(LoginForm)

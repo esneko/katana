@@ -1,18 +1,22 @@
 import React from 'react'
 import {bindActionCreators} from 'redux'
-import {connect} from 'react-redux'
+import connectState from '../utils/connectState'
 import * as LoanActions from '../actions/loanActions'
 import Summary from '../components/summary'
 import '../../public/styles/app.scss'
 
-const app = ({payday, dispatch}) => {
+const app = ({loans, dispatch}) => {
   const actions = bindActionCreators(LoanActions, dispatch)
   return (
     <Summary
-        {...payday}
+        loans={loans}
         actions={actions}
     />
   )
 }
-const mapStateToProps = state => state
-export default connect(mapStateToProps)(app)
+
+export default connectState({
+  state: {
+    loans: ['payday', 'loans']
+  }
+})(app)

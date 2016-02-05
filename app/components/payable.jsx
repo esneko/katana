@@ -1,6 +1,7 @@
 import React from 'react'
+import pure from 'recompose/pure'
 
-export default ({actions, amount, term, rate}) => {
+export default pure(({actions, amount, term, rate}) => {
   const interest = (n) => Math.round(n * rate / 100)
   const total = (n, f) => n + f(n)
   const loan = {
@@ -28,4 +29,4 @@ export default ({actions, amount, term, rate}) => {
       </div>
     </section>
   )
-}
+})
