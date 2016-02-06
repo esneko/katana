@@ -1,7 +1,7 @@
 import React from 'react'
 import pure from 'recompose/pure'
 
-export default pure(({actions, amount, term, rate}) => {
+export default pure(({addLoan, amount, term, rate}) => {
   const interest = (n) => Math.round(n * rate / 100)
   const total = (n, f) => n + f(n)
   const loan = {
@@ -9,6 +9,10 @@ export default pure(({actions, amount, term, rate}) => {
     term: term,
     interest: interest(amount),
     date: Date.now()
+  }
+  const onClick = event => {
+    event.preventDefault()
+    addLoan(loan)
   }
   return (
     <section className={"payable"}>
@@ -25,7 +29,7 @@ export default pure(({actions, amount, term, rate}) => {
         <span className={"total"}>{total(amount, interest)}</span>
       </div>
       <div className={"one-half"}>
-        <a href="#" onClick={(e) => actions.loan.addLoan(loan)}>{"Apply"}</a>
+        <a href="#" onClick={onClick}>{"Apply"}</a>
       </div>
     </section>
   )

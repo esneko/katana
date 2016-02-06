@@ -1,9 +1,9 @@
 import React, {PropTypes as T} from 'react'
 import pure from 'recompose/pure'
+import NumberInput from './form/fields/NumberInput'
 import Payable from './payable'
 
-const calculator = ({actions, amount, term, rate}) => {
-  const onChange = event => actions.form.setField('calculus', event.target.name, +event.target.value)
+const calculator = ({form, loan, amount, term, rate}) => {
   return (
     <div>
       <h2>{"Loan calculator"}</h2>
@@ -11,37 +11,40 @@ const calculator = ({actions, amount, term, rate}) => {
         <form>
           <div className={"one-third"}>
             <label>{"Amount"}</label>
-            <input type="text"
+            <NumberInput type="text"
                 maxLength="5"
+                store="calculus"
                 name='amount'
                 value={amount}
-                onChange={onChange}
+                setField={form.setField}
             />
             <span>{"euro"}</span>
           </div>
           <div className={"one-third"}>
             <label>{"Term"}</label>
-            <input type="text"
+            <NumberInput type="text"
                 maxLength="2"
+                store="calculus"
                 name='term'
                 value={term}
-                onChange={onChange}
+                setField={form.setField}
             />
             <span>{"days"}</span>
           </div>
           <div className={"one-third"}>
             <label>{"Rate"}</label>
-            <input type="text"
+            <NumberInput type="text"
                 maxLength="2"
+                store="calculus"
                 name='rate'
                 value={rate}
-                onChange={onChange}
+                setField={form.setField}
             />
             <span>{"%"}</span>
           </div>
         </form>
         <Payable
-            actions={actions}
+            addLoan={loan.addLoan}
             amount={amount}
             term={term}
             rate={rate}

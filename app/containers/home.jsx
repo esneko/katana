@@ -9,7 +9,7 @@ const app = ({calculus, dispatch}) => {
   return (
     <Calculator
         {...calculus}
-        actions={scopedActions}
+        {...scopedActions}
     />
   )
 }

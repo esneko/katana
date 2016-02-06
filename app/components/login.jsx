@@ -7,11 +7,9 @@ const LoginForm = ({setField, requestLogin, email, pass}) => {
     event.preventDefault()
     requestLogin({email, pass})
   }
-
   return (
     <form onSubmit={onSubmit}>
       <TextInput
-          parent="emaill"
           placeholder='Email'
           store="token"
           name='username'
@@ -19,7 +17,6 @@ const LoginForm = ({setField, requestLogin, email, pass}) => {
           setField={setField}
       />
       <TextInput
-          parent="passs"
           placeholder='Password'
           store="token"
           name='password'
