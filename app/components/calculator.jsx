@@ -1,6 +1,6 @@
 import React, {PropTypes as T} from 'react'
 import pure from 'recompose/pure'
-import NumberInput from './form/fields/NumberInput'
+import NumberInput from './form/fields/numberInput'
 import Payable from './payable'
 
 const calculator = ({form, loan, amount, term, rate}) => {
