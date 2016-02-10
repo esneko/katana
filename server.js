@@ -12,11 +12,11 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.get("/", function(req, res) {
+app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-app.get("/tests", function(req, res) {
+app.get('/tests', function(req, res) {
   res.sendFile(__dirname + '/public/tests.html');
 });
 
@@ -25,5 +25,5 @@ app.listen(port, function(err) {
     console.error(err);
     return;
   }
-  console.info("Listening at http://localhost:%s", port);
+  console.info('Listening at http://localhost:%s', port);
 });

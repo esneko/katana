@@ -1,9 +1,11 @@
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
-import Home from './containers/home'
-import Auth from './containers/auth'
-import Profile from './containers/profile'
-import Root from './layouts/root'
+import Root from '../layouts/root'
+import {
+  Home,
+  Auth,
+  Profile
+} from '../containers'
 
 export default (
   <Route component={Root} path="/">

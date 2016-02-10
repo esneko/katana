@@ -18,12 +18,13 @@
     "react": "^0.14.7",
     "react-dom": "^0.14.7",
     "react-redux": "^4.4.0",
-    "react-router": "^2.0.0-rc6",
+    "react-router": "^2.0.0",
     "recompose": "^0.14.5",
     "redux": "^3.3.1",
     "redux-debounced": "^0.1.1",
     "redux-diff-logger": "^0.0.9",
     "redux-promise-middleware": "^2.3.3",
+    "redux-saga": "^0.7.0",
     "redux-thunk": "^1.0.3",
     "seamless-immutable": "^5.0.1",
     "siu": "^0.4.0"
@@ -67,7 +68,7 @@
     "updtr": "0.1.7",
     "webpack": "^1.12.13",
     "webpack-dev-middleware": "^1.5.1",
-    "webpack-hot-middleware": "^2.6.4"
+    "webpack-hot-middleware": "^2.7.0"
   },
   "engines": {
     "node": ">= 0.10",

@@ -6,7 +6,7 @@ import immutableMiddleware from 'redux-immutable-state-invariant'
 import logger from 'redux-diff-logger'
 import rootReducer from '../reducers'
 
-export default function configureStore(initialState) {
+export default (initialState) => {
   const middleware = process.env.NODE_ENV !== 'production' ?
   [thunk, debounce, promiseMiddleware(), immutableMiddleware(), logger] :
   [thunk, debounce, promiseMiddleware()]

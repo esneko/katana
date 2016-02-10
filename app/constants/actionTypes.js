@@ -1,3 +1,4 @@
+export const NAVIGATE = 'NAVIGATE'
 export const REQUEST_LOGIN = 'REQUEST_LOGIN'
 export const SET_FIELD = 'SET_FIELD'
 export const ADD_LOAN = 'ADD_LOAN'
