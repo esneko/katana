@@ -1,8 +1,8 @@
 import actions from '../actions/index'
 import {bindActionCreators} from 'redux'
 
-export default (actionsProps = {}) => (dispatch) => {
-  return Object.keys(actionsProps).reduce((localState, name) => {
+export default (actionsProps = {}) => dispatch =>
+  Object.keys(actionsProps).reduce((localState, name) => {
     const key = actionsProps[name][0]
     const path = actionsProps[name][1]
 
@@ -15,4 +15,3 @@ export default (actionsProps = {}) => (dispatch) => {
       else
         return {...localState, [name]: bindActionCreators(actions[key][path], dispatch)}
   }, {dispatch})
-}

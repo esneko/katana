@@ -20,7 +20,7 @@ const createComponent = (component, props, ...children) => {
     children.length > 1 ? children : children[0]
   )
 
-  shallowRenderer.render(reactElement);
+  shallowRenderer.render(reactElement)
   return shallowRenderer.getRenderOutput()
 }
 

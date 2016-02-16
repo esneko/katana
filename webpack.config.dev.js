@@ -1,7 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
-var autoprefixer = require('autoprefixer');
-var NpmInstallPlugin = require('npm-install-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
+var autoprefixer = require('autoprefixer')
+var NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
@@ -14,12 +14,13 @@ module.exports = {
     './app/index'
   ],
   output: {
-    path: path.join(__dirname, 'public/dist'),
+    path: __dirname,
     filename: 'bundle.js',
-    publicPath: '/dist/'
+    publicPath: '/'
   },
   plugins: [
     new NpmInstallPlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -37,13 +38,12 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      loaders: ['babel'],
-      exclude: /node_modules/,
-      include: path.join(__dirname, 'app')
+      loader: 'babel',
+      exclude: /node_modules/
     }, {
       test: /\.scss$/,
       loaders: ['style', 'css', 'sass', 'postcss'],
-      include: path.join(__dirname, 'public')
+      include: path.join(__dirname, 'public/styles')
     }]
   },
   postcss: [autoprefixer]

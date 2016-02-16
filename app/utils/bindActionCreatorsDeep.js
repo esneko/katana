@@ -1,9 +1,9 @@
 import {bindActionCreators} from 'redux'
 
-const bindActionCreatorsDeep = (actionCreators, dispatch) => {
-  return Object.keys(actionCreators).reduce((result, key) => {
+const bindActionCreatorsDeep = (actionCreators, dispatch) =>
+  Object.keys(actionCreators).reduce((result, key) => {
     if (!actionCreators[key]) {
-      return result;
+      return result
     }
     switch (typeof actionCreators[key]) {
       case 'object':
@@ -17,6 +17,5 @@ const bindActionCreatorsDeep = (actionCreators, dispatch) => {
     }
     return result;
   }, {})
-}
 
 export default bindActionCreatorsDeep

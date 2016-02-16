@@ -1,24 +1,19 @@
-import 'babel-polyfill'
 import React from 'react'
 import {render} from 'react-dom'
 import {Provider} from 'react-redux'
-import {Router} from 'react-router'
-import {browserHistory} from 'react-router'
-import {runSaga, storeIO} from 'redux-saga'
+import {Router, browserHistory} from 'react-router'
+import si from 'seamless-immutable'
 import configureStore from './store'
-import rootSaga from './sagas'
 import routes from './routes'
 
-const store = configureStore()
-
-runSaga(
-  rootSaga(store.getState),
-  storeIO(store),
-  action => Promise.resolve(1).then(() => store.dispatch(action))
-)
+const initialState = si(window.__INITIAL_STATE__)
+const store = configureStore(initialState)
 
 //https://github.com/rackt/react-router-redux/issues/257
-browserHistory.listen(location => store.dispatch({type: 'NAVIGATE', location}))
+browserHistory.listen(location => store.dispatch({
+  type: 'NAVIGATE',
+  location
+}))
 
 render(
   <Provider store={store}>
