@@ -19,6 +19,7 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={amount}
                 setField={form.setField}
             />
+            <span>{"€"}</span>
           </div>
           <div>
             <label>{"Term"}</label>
@@ -29,6 +30,7 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={term}
                 setField={form.setField}
             />
+            <span>{"d"}</span>
           </div>
           <div>
             <label>{"Rate"}</label>
@@ -39,6 +41,7 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={rate}
                 setField={form.setField}
             />
+            <span>{"%"}</span>
           </div>
         </form>
         <Payable

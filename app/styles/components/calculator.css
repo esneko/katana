@@ -10,7 +10,7 @@
   form {
     display: flex;
     flex-direction: column;
-    flex: 0 1 60%;
+    flex: 0 1 50%;
     align-items: stretch;
     justify-content: flex-start;
     padding: 0 20px;
@@ -30,8 +30,17 @@
         flex: 0 1 50%;
         align-items: flex-start;
         justify-content: flex-start;
+      }
+
+      label,
+      input,
+      span {
         border-width: 0 0 1px;
         border-bottom: 1px solid $neutral;
+      }
+
+      span {
+        padding-left: 5px;
       }
 
       input {

@@ -6,7 +6,6 @@ const babelrc = fs.readFileSync('./.babelrc')
 let config = {}
 try {
   config = JSON.parse(babelrc)
-  //config.plugins.push('import-css-to-jss')
 } catch (err) {
   console.error('Error parsing .babelrc')
   console.error(err)

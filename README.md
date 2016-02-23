@@ -12,7 +12,6 @@ Micro-lending app built with 100% [React](https://github.com/facebook/react) _st
 - [Babel](http://babeljs.io/)
 - [Webpack](https://webpack.github.io/)
 - [Tape](https://www.npmjs.com/package/tape)
-
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - [PreCSS](https://www.npmjs.com/package/precss)
 - [PostCSS](https://www.npmjs.com/package/postcss)

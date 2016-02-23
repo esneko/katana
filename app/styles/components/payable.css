@@ -3,7 +3,7 @@
 .payable {
   display: flex;
   flex-direction: column;
-  flex: 0 1 40%;
+  flex: 0 1 50%;
   align-items: stretch;
   justify-content: flex-start;
   padding: 0 20px;
