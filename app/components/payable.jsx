@@ -1,5 +1,6 @@
 import React from 'react'
 import pure from 'recompose/pure'
+import styles from '../styles/components/payable.css'
 
 export default pure(({addLoan, amount, term, rate}) => {
   const interest = (n) => Math.round(n * rate / 100)
@@ -15,20 +16,20 @@ export default pure(({addLoan, amount, term, rate}) => {
     addLoan(loan)
   }
   return (
-    <section className={"payable"}>
-      <div className={"one-half"}>
+    <section className={styles.payable}>
+      <div>
         <label>{"Balance"}</label>
         <span>{amount}</span>
       </div>
-      <div className={"one-half"}>
+      <div>
         <label>{"Interest"}</label>
         <span>{interest(amount)}</span>
       </div>
-      <div className={"one-half"}>
+      <div>
         <label>{"Total"}</label>
-        <span className={"total"}>{total(amount, interest)}</span>
+        <span className={styles.total}>{total(amount, interest)}</span>
       </div>
-      <div className={"one-half"}>
+      <div>
         <a href="#" onClick={onClick}>{"Apply"}</a>
       </div>
     </section>

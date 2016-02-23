@@ -1,16 +1,14 @@
 var path = require('path')
 var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: [
     'babel-polyfill',
-    './app/index'
+    './app'
   ],
   output: {
     path: path.join(__dirname, 'public/dist'),
-    filename: 'bundle.js',
-    publicPath: '/dist/'
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.optimize.OccurenceOrderPlugin(),
@@ -30,20 +28,29 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss']
+    extensions: ['', '.js', '.jsx', '.css']
   },
   module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      }, {
-        test: /\.scss$/,
-        loaders: ['style', 'css', 'sass', 'postcss'],
-        include: path.join(__dirname, 'public/styles')
-      }
-    ]
+    loaders: [{
+      test: /\.jsx?$/,
+      loader: 'babel',
+      exclude: /node_modules/
+    }, {
+      test: /\.css$/,
+      loaders: [
+        'style-loader',
+        'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'postcss-loader?parser=postcss-scss'
+      ]
+    }]
   },
-  postcss: [autoprefixer]
+  postcss: function(webpack) {
+    return [
+      require('autoprefixer')(),
+      require('precss')(),
+      require('postcss-import')({
+        addDependencyTo: webpack
+      })
+    ]
+  }
 }

@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router'
+import styles from '../styles/layouts/menu.css'
 
 export default () =>
-  <header className="main-header">
+  <header className={styles.menu}>
     <nav>
       <ul>
         <li>

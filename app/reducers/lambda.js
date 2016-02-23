@@ -13,7 +13,9 @@ const handlers = {
 export default (scopedReducer) => (...args) => {
   const state = args[0]
   const action = args[1]
-  return handlers[action.type] ?
-    handlers[action.type](state, action.payload) :
+  const reducer = handlers[action.type]
+
+  return reducer ?
+    reducer(state, action.payload) :
     scopedReducer.apply(null, args)
 }

@@ -1,0 +1,43 @@
+@import "../variables/colors.css";
+
+.summary {
+  width: 100%;
+  border-collapse: collapse;
+
+  a {
+    margin: 0 20px;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background-color: white;
+    color: $button;
+    &:hover {
+      background-color: white;
+      color: $hover;
+    }
+  }
+
+  tr {
+    th,
+    td {
+      padding: 10px 20px;
+    }
+    th {
+      width: 20%;
+      padding-top: 0;
+      text-align: left;
+    }
+    td {
+      border-top: 1px solid $neutral;
+    }
+  }
+
+  tfoot {
+    color: $warning;
+    tr {
+      td {
+        border-top: 1px solid $warning;
+      }
+    }
+  }
+}

@@ -1,15 +1,16 @@
 import React, {PropTypes as T} from 'react'
 import pure from 'recompose/pure'
-import NumberInput from './form/fields/numberInput'
 import Payable from './payable'
+import NumberInput from './form/fields/numberInput'
+import styles from '../styles/components/calculator.css'
 
 const calculator = ({form, loan, amount, term, rate}) => {
   return (
     <div>
       <h2>{"Loan calculator"}</h2>
-      <div className={"calculator"}>
+      <div className={styles.calculator}>
         <form>
-          <div className={"one-third"}>
+          <div>
             <label>{"Amount"}</label>
             <NumberInput type="text"
                 maxLength="5"
@@ -18,9 +19,8 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={amount}
                 setField={form.setField}
             />
-            <span>{"euro"}</span>
           </div>
-          <div className={"one-third"}>
+          <div>
             <label>{"Term"}</label>
             <NumberInput type="text"
                 maxLength="2"
@@ -29,9 +29,8 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={term}
                 setField={form.setField}
             />
-            <span>{"days"}</span>
           </div>
-          <div className={"one-third"}>
+          <div>
             <label>{"Rate"}</label>
             <NumberInput type="text"
                 maxLength="2"
@@ -40,7 +39,6 @@ const calculator = ({form, loan, amount, term, rate}) => {
                 value={rate}
                 setField={form.setField}
             />
-            <span>{"%"}</span>
           </div>
         </form>
         <Payable

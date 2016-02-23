@@ -1,6 +1,5 @@
 var path = require('path')
 var webpack = require('webpack')
-var autoprefixer = require('autoprefixer')
 var NpmInstallPlugin = require('npm-install-webpack-plugin')
 
 module.exports = {
@@ -10,17 +9,20 @@ module.exports = {
   },
   entry: [
     'webpack-hot-middleware/client',
-    './app/__tests__/index',
-    './app/index'
+    './app/__tests__',
+    './app'
   ],
   output: {
-    path: __dirname,
+    path: path.join(__dirname, 'public/dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: '/dist/'
   },
   plugins: [
-    new NpmInstallPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
+    new NpmInstallPlugin({
+      cacheMin: 999999,
+      saveDev: true,
+      saveExact: true
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
@@ -30,10 +32,7 @@ module.exports = {
     })
   ],
   resolve: {
-    extensions: ['', '.js', '.jsx', '.scss'],
-    alias: {
-      request: 'browser-request'
-    }
+    extensions: ['', '.js', '.jsx', '.css']
   },
   module: {
     loaders: [{
@@ -41,10 +40,21 @@ module.exports = {
       loader: 'babel',
       exclude: /node_modules/
     }, {
-      test: /\.scss$/,
-      loaders: ['style', 'css', 'sass', 'postcss'],
-      include: path.join(__dirname, 'public/styles')
+      test: /\.css$/,
+      loaders: [
+        'style-loader',
+        'css-loader?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+        'postcss-loader?parser=postcss-scss'
+      ]
     }]
   },
-  postcss: [autoprefixer]
+  postcss: function(webpack) {
+    return [
+      require('autoprefixer')(),
+      require('precss')(),
+      require('postcss-import')({
+        addDependencyTo: webpack
+      })
+    ]
+  }
 }

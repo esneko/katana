@@ -5,6 +5,7 @@ import {Router, browserHistory} from 'react-router'
 import si from 'seamless-immutable'
 import configureStore from './store'
 import routes from './routes'
+import styles from './styles/base.css'
 
 const initialState = si(window.__INITIAL_STATE__)
 const store = configureStore(initialState)

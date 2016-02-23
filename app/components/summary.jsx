@@ -36,7 +36,7 @@ export default pure(({actions, loans}) => {
     <div className={"profile"}>
       <h2>{"Payments summary"}</h2>
       <Table
-          className='loans'
+          className='summary'
           head={['Balance', 'Interest', 'Total', 'Due']}
           list={list}
           total={total}

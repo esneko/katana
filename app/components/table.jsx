@@ -1,5 +1,6 @@
 import React from 'react'
 import pure from 'recompose/pure'
+import styles from '../styles/components/summary.css'
 
 export default pure(({actions, head, list, total, className}) => {
   const extend = id => event => {
@@ -7,7 +8,7 @@ export default pure(({actions, head, list, total, className}) => {
     actions.editLoan(id)
   }
   return (
-		<table className={className}>
+		<table className={styles[className]}>
 			<thead>
 				<tr>
 					{head.map((v,i) => <th key={i}>{v}</th>)}
