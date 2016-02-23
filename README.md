@@ -21,26 +21,16 @@ Micro-lending app built with 100% [React](https://github.com/facebook/react) _st
 git clone https://github.com/esneko/katana.git
 cd katana
 npm install
-```
-
-#### Launch
-```
-npm start
+npm run dev
 ```
 Open development server [http://localhost:3000](http://localhost:3000)
 
 #### Deploy
 ```
-npm run build
+npm start
 ```
-Open production build `public/index.html`
 
 #### Test
 ```
 npm test
-```
-
-#### Lint
-```
-npm run lint
 ```
